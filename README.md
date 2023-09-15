@@ -84,7 +84,7 @@ URL: https://i.gyazo.com/d205ac67380856d5e7b0b9896bb12831.png
 | --------------- | ---------- | -------------------------      |
 | buyer           | references | null: false, foreign_key: true |
 | post_code       | string     | null: false                    |
-| ship_area_id    | string     | null: false                    | 
+| ship_area_id    | integer    | null: false                    | 
 | city            | string     | null: false                    |
 | block           | string     | null: false                    |
 | building        | string     |                                |
