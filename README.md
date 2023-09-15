@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 
 # ER図
-URL: https://i.gyazo.com/0ad81d121e3d7f91496f18cd35ad0d2e.png
+URL: https://i.gyazo.com/d205ac67380856d5e7b0b9896bb12831.png
 
 # テーブル設計
 
@@ -55,7 +55,7 @@ URL: https://i.gyazo.com/0ad81d121e3d7f91496f18cd35ad0d2e.png
 | condition_id   | integer    | null: false                    |
 | ship_method_id | integer    | null: false                    |
 | ship_area_id   | integer    | null: false                    |
-| ship_days_id   | integer    | null: false                    |
+| ship_day_id    | integer    | null: false                    |
 | description    | text       | null: false                    |
 | price          | integer    | null: false                    |
 | user           | references | null: false, foreign_key: true |
@@ -84,7 +84,7 @@ URL: https://i.gyazo.com/0ad81d121e3d7f91496f18cd35ad0d2e.png
 | --------------- | ---------- | -------------------------      |
 | buyer           | references | null: false, foreign_key: true |
 | post_code       | string     | null: false                    |
-| prefecture_name | string     | null: false                    | 
+| ship_area_id    | string     | null: false                    | 
 | city            | string     | null: false                    |
 | block           | string     | null: false                    |
 | building        | string     |                                |
