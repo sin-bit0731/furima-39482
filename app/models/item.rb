@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :ship_method
   belongs_to :ship_charge
   belongs_to :user
+  has_one_attached :item_image
 
   validates :item_name, :description, :price, presence: true
 
