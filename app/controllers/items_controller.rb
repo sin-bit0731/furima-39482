@@ -12,14 +12,16 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path(id: current_user)
     else
       render :new
     end
   end
 
-  def destroy
-  end
+  def show
+    @item = Item.find(params[:id])
+    @user = User.find(params[:id])
+  end  
 
   private
 
