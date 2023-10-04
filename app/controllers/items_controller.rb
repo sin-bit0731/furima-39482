@@ -25,9 +25,6 @@ class ItemsController < ApplicationController
   end
   
   def edit
-    unless @item.user == current_user
-      redirect_to root_path
-    end  
   end
   
   def update
@@ -51,8 +48,8 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to user_session_path
+    unless @item.user == current_user
+      redirect_to root_path
     end
   end    
 end
