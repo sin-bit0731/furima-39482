@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :move_to_index, except: [:index, :show]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -21,7 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = @item.user
   end
   
   def edit
@@ -34,6 +35,11 @@ class ItemsController < ApplicationController
     else  
       render :edit, status: :unprocessable_entity
     end  
+  end
+  
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end  
 
   private
@@ -48,8 +54,12 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless @item.user == current_user
+    unless user_signed_in?
       redirect_to root_path
     end
-  end    
+  end
+  
+  def contributor_confirmation
+    redirect_to root_path unless current_user == @item.user
+  end
 end
