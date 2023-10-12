@@ -57,7 +57,7 @@ URL: https://i.gyazo.com/b13023e1168f69ebe4c90d28290dfff5.png
 | ship_method_id | integer    | null: false                    |
 | ship_area_id   | integer    | null: false                    |
 | ship_day_id    | integer    | null: false                    |
-| ship_charge    | integer    | null: false                    |
+| ship_charge_id    | integer    | null: false                    |
 | price          | integer    | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
@@ -83,7 +83,7 @@ URL: https://i.gyazo.com/b13023e1168f69ebe4c90d28290dfff5.png
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | -------------------------      |
-| buyer           | references | null: false, foreign_key: true |
+| purchase_history           | references | null: false, foreign_key: true |
 | post_code       | string     | null: false                    |
 | ship_area_id    | integer    | null: false                    | 
 | city            | string     | null: false                    |
