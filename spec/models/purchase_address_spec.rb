@@ -9,7 +9,7 @@ RSpec.describe PurchaseAddress, type: :model do
     end
 
     context '内容に問題ない場合' do
-      it 'すべての値が正しく入力されていれば保存できること' do
+      it '配送先住所とtokenがあれば保存できること' do
         expect(@purchase_address).to be_valid
       end
       it 'buildingは空でも保存できること' do
@@ -58,6 +58,11 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.user_id = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'tokenが空では保存できないこと' do
+        @purchase_address.token = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
