@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 
 # ER図
-URL: https://i.gyazo.com/b13023e1168f69ebe4c90d28290dfff5.png
+URL: https://i.gyazo.com/a80543c4dc4f8c5e9a564a3b00e3032b.png
 
 # テーブル設計
 
@@ -39,7 +39,7 @@ URL: https://i.gyazo.com/b13023e1168f69ebe4c90d28290dfff5.png
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
-| birthday           | date   | null: false               |
+| birth_date         | date   | null: false               |
 
 ### Association
 
@@ -57,7 +57,7 @@ URL: https://i.gyazo.com/b13023e1168f69ebe4c90d28290dfff5.png
 | ship_method_id | integer    | null: false                    |
 | ship_area_id   | integer    | null: false                    |
 | ship_day_id    | integer    | null: false                    |
-| ship_charge_id    | integer    | null: false                    |
+| ship_charge_id | integer    | null: false                    |
 | price          | integer    | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
@@ -81,15 +81,15 @@ URL: https://i.gyazo.com/b13023e1168f69ebe4c90d28290dfff5.png
 
 ## customer_addressesテーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | -------------------------      |
-| purchase_history           | references | null: false, foreign_key: true |
-| post_code       | string     | null: false                    |
-| ship_area_id    | integer    | null: false                    | 
-| city            | string     | null: false                    |
-| block           | string     | null: false                    |
-| building        | string     |                                |
-| phone_number    | string     | null: false                    |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| purchase_history | references | null: false, foreign_key: true |
+| post_code        | string     | null: false                    |
+| ship_area_id     | integer    | null: false                    | 
+| city             | string     | null: false                    |
+| block            | string     | null: false                    |
+| building         | string     |                                |
+| phone_number     | string     | null: false                    |
 
 ### Association
 
