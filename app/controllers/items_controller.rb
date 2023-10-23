@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :move_to_index, except: [:index, :show]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
+  before_action :prevent_url, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -24,29 +25,29 @@ class ItemsController < ApplicationController
   def show
     @user = @item.user
   end
-  
+
   def edit
   end
-  
+
   def update
     @item.update(item_params)
     if @item.update(item_params)
       redirect_to item_path
-    else  
+    else
       render :edit, status: :unprocessable_entity
-    end  
+    end
   end
-  
+
   def destroy
     @item.destroy
     redirect_to root_path
-  end  
+  end
 
   private
 
   def set_item
     @item = Item.find(params[:id])
-  end  
+  end
 
   def item_params
     params.require(:item).permit(:item_name, :description, :category_id, :condition_id, :ship_area_id, :ship_charge_id,
@@ -54,12 +55,19 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to root_path
-    end
+    return if user_signed_in?
+
+    redirect_to root_path
   end
-  
+
   def contributor_confirmation
     redirect_to root_path unless current_user == @item.user
   end
+
+  def prevent_url
+    if @item.user_id == current_user.id && @item.purchase_history != nil
+      redirect_to root_path
+    end
+  end 
+
 end
