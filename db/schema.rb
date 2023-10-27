@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_08_083210) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_27_091603) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -57,7 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_083210) do
     t.text "description", null: false
     t.integer "category_id"
     t.integer "condition_id"
-    t.integer "ship_method_id"
     t.integer "ship_area_id"
     t.integer "ship_day_id"
     t.integer "ship_charge_id"
