@@ -77,7 +77,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'unicorn', '6.1.0'
 end
 
@@ -89,3 +88,4 @@ gem 'image_processing', '~> 1.2'
 gem 'payjp'
 gem 'gon'
 gem "aws-sdk-s3", require: false
+gem 'mimemagic', '~> 0.4.3'
